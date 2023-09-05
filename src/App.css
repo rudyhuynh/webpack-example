@@ -1,0 +1,9 @@
+.title {
+  font-family: Roboto;
+  font-size: 36px;
+  color: white;
+}
+
+.title > svg {
+  height: 30px;
+}
