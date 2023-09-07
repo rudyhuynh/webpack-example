@@ -47,7 +47,7 @@ module.exports = function (env) {
     },
     plugins: [
       new webpack.ProgressPlugin(),
-      ...(MiniCssExtractPlugin.loader
+      ...(isProduction
         ? [
             new MiniCssExtractPlugin({
               filename: "styles-[contenthash].css",
