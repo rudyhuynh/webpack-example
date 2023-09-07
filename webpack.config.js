@@ -4,8 +4,6 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 /**
- * @param {*} env
- * @param {*} argv
  * @returns {import('webpack').Configuration}
  */
 module.exports = function (env) {
