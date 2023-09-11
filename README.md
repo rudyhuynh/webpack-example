@@ -1,8 +1,9 @@
 # webpack-example
 
-A simple modern Javascript project. But there is no Webpack setup yet.
+A nearly empty project. Where everything begins...
 
 ```
-git clone git@github.com:rudyhuynh/webpack-example.git
+git clone https://github.com/rudyhuynh/webpack-example.git
+git checkout S2-Getting-Started
 npm install
 ```

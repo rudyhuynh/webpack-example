@@ -1,0 +1,8 @@
+body {
+  background-image: url(./assets/background.png);
+}
+
+#root {
+  color: red;
+  font-size: 8rem;
+}

@@ -1,21 +1,14 @@
 {
   "name": "webpack-example",
   "version": "1.0.0",
-  "description": "",
-  "private": true,
+  "description": "A nearly empty project. Where everything begins...",
+  "main": "index.js",
   "scripts": {
-    "dev": "webpack serve",
-    "build": "webpack --env production"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
-  "devDependencies": {
-    "@types/react": "^18.2.21",
-    "@types/react-dom": "^18.2.7",
-    "typescript": "^5.2.2"
-  }
+  "dependencies": {},
+  "devDependencies": {}
 }
