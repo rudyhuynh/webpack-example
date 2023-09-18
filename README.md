@@ -1,6 +1,6 @@
 # webpack-example
 
-A nearly empty project. Where everything begins...
+Example for Section 2 Video 2.
 
 ```
 git clone https://github.com/rudyhuynh/webpack-example.git
