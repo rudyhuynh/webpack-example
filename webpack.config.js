@@ -11,10 +11,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        use: [
-          "style-loader", // run second, inject CSS on runtime
-          "css-loader", // run first, url()
-        ],
+        use: ["style-loader", "css-loader"],
       },
     ],
   },
