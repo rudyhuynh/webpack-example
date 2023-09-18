@@ -9,7 +9,11 @@ body {
 
 #root {
   color: red;
-  font-size: 8rem;
+  font-size: 4rem;
   text-align: center;
   font-family: "Roboto";
+}
+
+#root img {
+  width: 200px;
 }

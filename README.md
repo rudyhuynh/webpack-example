@@ -1,9 +1,9 @@
 # webpack-example
 
-A nearly empty project. Where everything begins...
+Example for Section 2 Video 2.
 
 ```
 git clone https://github.com/rudyhuynh/webpack-example.git
-git checkout S2-CSS-Loaders-Result
+git checkout S2-Load-Image
 npm install
 ```
