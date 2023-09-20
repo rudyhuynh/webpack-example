@@ -4,6 +4,6 @@ Example for Section 2 Video 2.
 
 ```
 git clone https://github.com/rudyhuynh/webpack-example.git
-git checkout S2-Load-Image
+git checkout S3-Babel
 npm install
 ```
