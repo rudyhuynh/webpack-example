@@ -2,7 +2,7 @@ const path = require("path");
 
 /** @type {import('webpack').Configuration} */
 module.exports = {
-  entry: "./src/main.js",
+  entry: "./src/main.ts",
   output: {
     path: path.resolve(__dirname, "dist"),
     assetModuleFilename: "[name].[hash][ext]",
@@ -10,6 +10,9 @@ module.exports = {
   },
   mode: "development",
   devtool: "source-map",
+  resolve: {
+    extensions: [".ts", ".tsx", ".js", ".jsx"],
+  },
   module: {
     rules: [
       {
