@@ -1,4 +1,7 @@
 const path = require("path");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+const isProduction = process.env.NODE_ENV === "production";
 
 /** @type {import('webpack').Configuration} */
 module.exports = {
@@ -8,8 +11,8 @@ module.exports = {
     assetModuleFilename: "[name].[hash][ext]",
     clean: true,
   },
-  mode: "development",
-  devtool: "source-map",
+  mode: isProduction ? "production" : "development",
+  devtool: isProduction ? false : "source-map",
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".jsx"],
   },
@@ -17,7 +20,10 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: [
+          isProduction ? MiniCssExtractPlugin.loader : "style-loader",
+          "css-loader",
+        ],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
@@ -35,4 +41,5 @@ module.exports = {
       },
     ],
   },
+  plugins: isProduction ? [new MiniCssExtractPlugin()] : [],
 };

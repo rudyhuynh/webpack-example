@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
+    "build:production": "NODE_ENV=production webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -13,6 +14,7 @@
   "devDependencies": {
     "css-loader": "^6.8.1",
     "esbuild-loader": "4.0.2",
+    "mini-css-extract-plugin": "^2.7.6",
     "style-loader": "^3.3.3",
     "typescript": "^5.2.2",
     "webpack": "^5.88.2",
