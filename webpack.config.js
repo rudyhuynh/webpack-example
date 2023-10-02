@@ -1,5 +1,6 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const isProduction = process.env.NODE_ENV === "production";
 
@@ -7,8 +8,9 @@ const isProduction = process.env.NODE_ENV === "production";
 module.exports = {
   entry: "./src/main.ts",
   output: {
+    filename: "[name].[contenthash].js",
     path: path.resolve(__dirname, "dist"),
-    assetModuleFilename: "[name].[hash][ext]",
+    assetModuleFilename: "[name].[contenthash][ext]",
     clean: true,
   },
   mode: isProduction ? "production" : "development",
@@ -41,5 +43,14 @@ module.exports = {
       },
     ],
   },
-  plugins: isProduction ? [new MiniCssExtractPlugin()] : [],
+  plugins: [
+    ...miniCssExtractPlugin(),
+    new HtmlWebpackPlugin({ template: "./index.html" }),
+  ],
 };
+
+function miniCssExtractPlugin() {
+  return isProduction
+    ? [new MiniCssExtractPlugin({ filename: "style.[contenthash].css" })]
+    : [];
+}
