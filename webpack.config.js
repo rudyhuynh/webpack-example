@@ -1,6 +1,8 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
+const ESLintPlugin = require("eslint-webpack-plugin");
 
 const isProduction = process.env.NODE_ENV === "production";
 
@@ -45,8 +47,14 @@ module.exports = {
   },
   plugins: [
     ...miniCssExtractPlugin(),
+    new ForkTsCheckerWebpackPlugin(),
+    new ESLintPlugin({
+      extensions: ["ts", "tsx"],
+      exclude: ["node_modules"],
+    }),
     new HtmlWebpackPlugin({ template: "./index.html" }),
   ],
+  devServer: {},
 };
 
 function miniCssExtractPlugin() {
