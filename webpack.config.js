@@ -46,16 +46,25 @@ module.exports = {
   plugins: [
     ...miniCssExtractPlugin(),
 
-    // https://webpack.js.org/plugins/define-plugin
+    /**
+     * Pass constant values to the source code
+     * https://webpack.js.org/plugins/define-plugin
+     */
     new webpack.DefinePlugin({
-      "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
       DEBUG: process.env.NODE_ENV === "development",
     }),
 
-    // https://github.com/TypeStrong/fork-ts-checker-webpack-plugin
+    /**
+     * Do type check in a separate process and show Typescript error on the console
+     * https://github.com/TypeStrong/fork-ts-checker-webpack-plugin
+     */
     new ForkTsCheckerWebpackPlugin(),
 
-    // https://webpack.js.org/plugins/eslint-webpack-plugin/
+    /**
+     * Show ESLint warnings or errors on the console.
+     * Require eslint to be installed: npm init @eslint/config
+     * https://webpack.js.org/plugins/eslint-webpack-plugin/
+     */
     new ESLintPlugin({
       extensions: ["ts", "tsx"],
       exclude: ["node_modules"],
