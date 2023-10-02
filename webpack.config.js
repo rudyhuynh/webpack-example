@@ -1,4 +1,5 @@
 const path = require("path");
+const webpack = require("webpack");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
@@ -33,13 +34,10 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: "asset/resource",
       },
-      // Use esbuild to compile JavaScript & TypeScript
       {
-        // Match `.js`, `.jsx`, `.ts` or `.tsx` files
         test: /\.[jt]sx?$/,
         loader: "esbuild-loader",
         options: {
-          // JavaScript version to compile to
           target: "es2022",
         },
       },
@@ -47,14 +45,24 @@ module.exports = {
   },
   plugins: [
     ...miniCssExtractPlugin(),
+
+    // https://webpack.js.org/plugins/define-plugin
+    new webpack.DefinePlugin({
+      "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
+      DEBUG: process.env.NODE_ENV === "development",
+    }),
+
+    // https://github.com/TypeStrong/fork-ts-checker-webpack-plugin
     new ForkTsCheckerWebpackPlugin(),
+
+    // https://webpack.js.org/plugins/eslint-webpack-plugin/
     new ESLintPlugin({
       extensions: ["ts", "tsx"],
       exclude: ["node_modules"],
     }),
+
     new HtmlWebpackPlugin({ template: "./index.html" }),
   ],
-  devServer: {},
 };
 
 function miniCssExtractPlugin() {
