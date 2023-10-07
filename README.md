@@ -1,9 +1,9 @@
 # webpack-example
 
-Example for Section 4 Video 4.
+Example for Section 5 Video 1.
 
 ```
 git clone https://github.com/rudyhuynh/webpack-example.git
-git checkout S4-Other-Plugins
+git checkout S5-env
 npm install
 ```
