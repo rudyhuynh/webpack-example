@@ -5,15 +5,53 @@
 
 body {
   background-image: url(./assets/background.png);
+  margin: 0;
 }
 
 #root {
-  color: red;
-  font-size: 4rem;
-  text-align: center;
-  font-family: "Roboto";
+  width: 100vw;
+  height: 100vh;
+  display: flex;
 }
 
-#root img {
-  width: 200px;
+nav {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  height: 50px;
+}
+nav a {
+  font-family: Roboto;
+  display: block;
+  color: rgb(144, 202, 249);
+  text-decoration: none;
+  font-size: 2rem;
+}
+nav a:visited {
+  color: rgb(144, 202, 249);
+}
+
+nav a.active,
+nav a:hover {
+  text-decoration: underline;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  flex: 1;
+}
+
+.page-content {
+  flex: 1;
+  font-weight: 400;
+  font-family: Roboto;
+  padding: 16px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1rem;
+  background-color: rgb(18, 18, 18);
+  border-radius: 4px;
 }

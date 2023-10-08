@@ -10,7 +10,7 @@ const isProduction = process.env.NODE_ENV === "production";
 
 /** @type {import('webpack').Configuration} */
 module.exports = {
-  entry: "./src/main.ts",
+  entry: "./src/main.tsx",
   output: {
     filename: "[name].[contenthash].js",
     path: path.resolve(__dirname, "dist"),
