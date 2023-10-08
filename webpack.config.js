@@ -1,3 +1,4 @@
+require("dotenv").config({ path: process.env.ENV_PATH });
 const path = require("path");
 const webpack = require("webpack");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -50,9 +51,11 @@ module.exports = {
      * Pass constant values to the source code
      * https://webpack.js.org/plugins/define-plugin
      */
-    new webpack.DefinePlugin({
-      DEBUG: process.env.NODE_ENV === "development",
-    }),
+    // new webpack.DefinePlugin({
+    //   DEBUG: process.env.NODE_ENV === "development",
+    // }),
+
+    new webpack.EnvironmentPlugin(["NODE_ENV", "ENDPOINT", "DEBUG"]),
 
     /**
      * Do type check in a separate process and show Typescript error on the console

@@ -4,8 +4,8 @@
   "description": "A nearly empty project. Where everything begins...",
   "main": "index.js",
   "scripts": {
-    "build": "NODE_ENV=development webpack",
-    "build:production": "NODE_ENV=production webpack",
+    "build": "ENV_PATH=.env.development webpack",
+    "build:production": "ENV_PATH=.env.production webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -15,6 +15,7 @@
     "@typescript-eslint/eslint-plugin": "^6.7.3",
     "@typescript-eslint/parser": "^6.7.3",
     "css-loader": "^6.8.1",
+    "dotenv": "^16.3.1",
     "esbuild-loader": "4.0.2",
     "eslint": "^8.50.0",
     "eslint-webpack-plugin": "^4.0.1",
