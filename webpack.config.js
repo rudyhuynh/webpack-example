@@ -10,6 +10,11 @@ const isProduction = process.env.NODE_ENV === "production";
 
 /** @type {import('webpack').Configuration} */
 module.exports = {
+  /** @type {import('webpack-dev-server').Configuration} */
+  devServer: {
+    port: process.env.PORT,
+    historyApiFallback: true,
+  },
   entry: "./src/main.tsx",
   output: {
     filename: "[name].[contenthash].js",
