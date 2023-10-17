@@ -5,6 +5,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 const isProduction = process.env.NODE_ENV === "production";
 
@@ -47,6 +48,13 @@ module.exports = {
           target: "es2022",
         },
       },
+    ],
+  },
+  optimization: {
+    minimizer: [
+      // Extend existing minimizers (i.e. terser plugin.)
+      "...",
+      new CssMinimizerPlugin(),
     ],
   },
   plugins: [
