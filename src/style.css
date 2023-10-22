@@ -4,7 +4,8 @@
 }
 
 body {
-  background-image: url(./assets/background.png);
+  /* background-image: url(./assets/background.png); */
+  background-color: #004360;
   margin: 0;
 }
 

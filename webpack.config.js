@@ -6,6 +6,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 
 const isProduction = process.env.NODE_ENV === "production";
 
@@ -38,7 +39,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        test: /\.(png|jpg|jpeg|gif)$/i,
         type: "asset/resource",
       },
       {
@@ -48,13 +49,18 @@ module.exports = {
           target: "es2022",
         },
       },
+      {
+        // See https://react-svgr.com/docs/webpack/
+        test: /\.svg$/i,
+        issuer: /\.tsx?$/,
+        loader: "@svgr/webpack",
+      },
     ],
   },
   optimization: {
     minimizer: [
-      // Extend existing minimizers (i.e. terser plugin.)
-      "...",
-      new CssMinimizerPlugin(),
+      "...", // Extend existing minimizers (i.e. terser plugin.)
+      new CssMinimizerPlugin(), // See https://webpack.js.org/plugins/css-minimizer-webpack-plugin/
     ],
   },
   plugins: [
@@ -87,6 +93,8 @@ module.exports = {
     }),
 
     new HtmlWebpackPlugin({ template: "./index.html" }),
+
+    ...(process.env.ANALYZE ? [new BundleAnalyzerPlugin()] : []),
   ],
 };
 
