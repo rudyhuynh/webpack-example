@@ -94,6 +94,9 @@ module.exports = {
 
     new HtmlWebpackPlugin({ template: "./index.html" }),
 
+    /**
+     * See https://github.com/webpack-contrib/webpack-bundle-analyzer
+     */
     ...(process.env.ANALYZE ? [new BundleAnalyzerPlugin()] : []),
   ],
 };
