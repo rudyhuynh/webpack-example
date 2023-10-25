@@ -17,7 +17,7 @@ module.exports = {
     port: process.env.PORT,
     historyApiFallback: true,
   },
-  entry: "./src/main.tsx",
+  entry: "./src/main",
   output: {
     filename: "[name].[contenthash].js",
     path: path.resolve(__dirname, "dist"),
