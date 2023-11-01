@@ -7,7 +7,7 @@ const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
-
+const utils = require("util");
 const isProduction = process.env.NODE_ENV === "production";
 
 /** @type {import('webpack').Configuration} */
@@ -17,7 +17,12 @@ module.exports = {
     port: process.env.PORT,
     historyApiFallback: true,
   },
-  entry: "./src/main.tsx",
+  // entry: "./src/main.tsx",
+  entry: {
+    home: "./src/module/home/main.tsx",
+    math: "./src/module/math/main.tsx",
+    about: "./src/module/about/main.tsx",
+  },
   output: {
     filename: "[name].[contenthash].js",
     path: path.resolve(__dirname, "dist"),
@@ -92,7 +97,42 @@ module.exports = {
       exclude: ["node_modules"],
     }),
 
-    new HtmlWebpackPlugin({ template: "./index.html" }),
+    new HtmlWebpackPlugin({
+      chunks: ["home"],
+      filename: "home.html",
+      inject: false,
+      // See https://github.com/jantimon/html-webpack-plugin#writing-your-own-templates
+      templateContent: ({ compilation, htmlWebpackPlugin }) => {
+        const prefetchPaths = getJsAssetPaths(compilation, ["about"]);
+
+        return `<!DOCTYPE html>
+        <html>
+          <head>
+            <meta charset="utf-8" />
+            <title>React App with React Router Dom</title>
+            ${htmlWebpackPlugin.tags.headTags}
+            <link ref="prefetch" href="/about.html"/>
+            ${prefetchPaths.map((p) => `<link ref="prefetch" href="${p}"/>`)}
+          </head>
+          <body>
+            <div id="root"></div>
+            ${htmlWebpackPlugin.tags.bodyTags}
+          </body>
+        </html>
+        `;
+      },
+    }),
+
+    new HtmlWebpackPlugin({
+      chunks: ["math"],
+      template: "./index.html",
+      filename: "math.html",
+    }),
+    new HtmlWebpackPlugin({
+      chunks: ["about"],
+      template: "./index.html",
+      filename: "about.html",
+    }),
 
     /**
      * See https://github.com/webpack-contrib/webpack-bundle-analyzer
@@ -105,4 +145,36 @@ function miniCssExtractPlugin() {
   return isProduction
     ? [new MiniCssExtractPlugin({ filename: "style.[contenthash].css" })]
     : [];
+}
+
+// /**
+//  *
+//  * @param {import('webpack').Compilation} compilation
+//  * @param {string[]} includeChunks
+//  * @returns {string} string of script tags
+//  */
+// function getPreloadTags(compilation, includeChunks) {
+//   if (!includeChunks || !includeChunks.length)
+//     throw new Error("includeEntries must not be empty!");
+
+//   return compilation
+//     .getAssets()
+//     .filter(({ name }) => includeChunks.some((chunk) => name.startsWith(chunk)))
+//     .filter(({ name }) => name.endsWith(".js"))
+//     .map(({ name }) => `<link rel="preload" as="script" href="${name}"/>`)
+//     .join("");
+// }
+
+/**
+ *
+ * @param {import('webpack').Compilation} compilation
+ * @param {string[]} include
+ * @returns {string[]} Array of JS asset paths
+ */
+function getJsAssetPaths(compilation, include = []) {
+  return compilation
+    .getAssets()
+    .filter(({ name }) => include.some((chunk) => name.startsWith(chunk)))
+    .filter(({ name }) => name.endsWith(".js"))
+    .map(({ name }) => name);
 }

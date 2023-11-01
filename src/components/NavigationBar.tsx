@@ -1,24 +1,24 @@
-import { NavLink, useLocation } from "react-router-dom";
-
 export const NavigationBar = () => {
-  const location = useLocation();
   return (
     <nav>
-      <NavLink to="/" className={location.pathname === "/" ? "active" : ""}>
+      <a
+        href="/home.html"
+        className={location.pathname === "/home.html" ? "active" : ""}
+      >
         Home
-      </NavLink>
-      <NavLink
-        to="/exp"
-        className={location.pathname === "/exp" ? "active" : ""}
+      </a>
+      <a
+        href="/math.html"
+        className={location.pathname === "/math.html" ? "active" : ""}
       >
         Exponentiation
-      </NavLink>
-      <NavLink
-        to="/about"
-        className={location.pathname === "/about" ? "active" : ""}
+      </a>
+      <a
+        href="/about.html"
+        className={location.pathname === "/about.html" ? "active" : ""}
       >
         About
-      </NavLink>
+      </a>
     </nav>
   );
 };

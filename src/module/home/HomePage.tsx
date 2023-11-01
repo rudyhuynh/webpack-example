@@ -1,4 +1,4 @@
-import WebpackLogo from "../assets/webpack-logo.svg";
+import WebpackLogo from "../../assets/webpack-logo.svg";
 
 export const HomePage = () => {
   return (
