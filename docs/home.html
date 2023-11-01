@@ -5,12 +5,23 @@
     <title>React App with React Router Dom</title>
     <script defer="defer" src="home.5938d9cfa546681de3a2.js"></script>
     <link href="style.628438f110c16e807781.css" rel="stylesheet" />
-    <link ref="prefetch" href="background.2fbab61a6cfa39fc73de.png" />
-    <link ref="prefetch" href="about.c922a9dcb9e6b41e8588.js" />
+    <link
+      ref="prefetch"
+      href="background.2fbab61a6cfa39fc73de.png"
+      onload="console.log('prefetch onload fired1')"
+      onerror="console.log('err1')"
+    />
+    <link
+      ref="prefetch"
+      href="about.c922a9dcb9e6b41e8588.js"
+      onload="console.log('prefetch onload fired2')"
+      onerror="console.log('err2')"
+    />
     <link
       rel="prefetch"
       href="https://rudyhuynh.github.io/webpack-example/background.2fbab61a6cfa39fc73de.png"
-      onload="console.log('prefetch onload fired')"
+      onload="console.log('prefetch onload fired3')"
+      onerror="console.log('err3')"
     />
   </head>
   <body>
