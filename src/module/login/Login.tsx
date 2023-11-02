@@ -1,6 +1,5 @@
 import { Button, Container, TextField } from "@mui/material";
 import "./Login.css";
-import { renderHaha } from "../../utils/renderExp";
 
 export const Login = () => {
   const onClickLogin = () => {
@@ -9,7 +8,6 @@ export const Login = () => {
 
   return (
     <div className="login">
-      {renderHaha()}
       <Container fixed>
         <TextField fullWidth label="Email" required />
         <TextField fullWidth label="Password" required />

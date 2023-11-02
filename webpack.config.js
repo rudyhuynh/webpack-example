@@ -7,7 +7,6 @@ const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
-const utils = require("util");
 const isProduction = process.env.NODE_ENV === "production";
 
 /** @type {import('webpack').Configuration} */
@@ -20,13 +19,7 @@ module.exports = {
       overlay: false,
     },
   },
-  // entry: "./src/main.tsx",
-  entry: {
-    login: "./src/module/login/main.tsx",
-    landing: "./src/module/landing/main.tsx",
-    app1: "./src/module/app1/main.tsx",
-    app2: "./src/module/app2/main.tsx",
-  },
+  entry: "./src/main.tsx",
   output: {
     filename: "[name].[contenthash].js",
     path: path.resolve(__dirname, "dist"),
@@ -102,26 +95,9 @@ module.exports = {
     }),
 
     new HtmlWebpackPlugin({
-      chunks: ["login"],
       template: "./index.html",
-      filename: "index.html",
     }),
 
-    new HtmlWebpackPlugin({
-      chunks: ["landing"],
-      template: "./index.html",
-      filename: "landing.html",
-    }),
-    new HtmlWebpackPlugin({
-      chunks: ["app1"],
-      template: "./index.html",
-      filename: "app1.html",
-    }),
-    new HtmlWebpackPlugin({
-      chunks: ["app2"],
-      template: "./index.html",
-      filename: "app2.html",
-    }),
     /**
      * See https://github.com/webpack-contrib/webpack-bundle-analyzer
      */
