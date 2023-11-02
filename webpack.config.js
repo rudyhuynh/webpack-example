@@ -112,7 +112,7 @@ module.exports = {
             <title>React App with React Router Dom</title>
             ${htmlWebpackPlugin.tags.headTags}
             <link ref="prefetch" href="about.html"/>
-            ${prefetchPaths.map((p) => `<link ref="prefetch" href="${p}"/>`)}
+            ${prefetchPaths.map((p) => `<link rel="prefetch" href="${p}"/>`)}
           </head>
           <body>
             <div id="root"></div>
