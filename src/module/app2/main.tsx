@@ -1,13 +1,13 @@
 import ReactDOM from "react-dom/client";
 import { StrictMode } from "react";
 import "../../style.css";
-import { HomePage } from "./HomePage";
-import { Root } from "../../components/Root";
+import { App2 } from "./App2";
+import { Root } from "../../shared/Root";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <Root>
-      <HomePage />
+    <Root title="App No. 2">
+      <App2 />
     </Root>
   </StrictMode>
 );

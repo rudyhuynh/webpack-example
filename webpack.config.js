@@ -16,16 +16,20 @@ module.exports = {
   devServer: {
     port: process.env.PORT,
     historyApiFallback: true,
+    client: {
+      overlay: false,
+    },
   },
   // entry: "./src/main.tsx",
   entry: {
-    home: "./src/module/home/main.tsx",
-    math: "./src/module/math/main.tsx",
-    about: "./src/module/about/main.tsx",
+    login: "./src/module/login/main.tsx",
+    landing: "./src/module/landing/main.tsx",
+    app1: "./src/module/app1/main.tsx",
+    app2: "./src/module/app2/main.tsx",
   },
   output: {
     filename: "[name].[contenthash].js",
-    path: path.resolve(__dirname, "docs"),
+    path: path.resolve(__dirname, "dist"),
     assetModuleFilename: "[name].[contenthash][ext]",
     clean: true,
   },
@@ -98,42 +102,26 @@ module.exports = {
     }),
 
     new HtmlWebpackPlugin({
-      chunks: ["home"],
-      filename: "home.html",
-      inject: false,
-      // See https://github.com/jantimon/html-webpack-plugin#writing-your-own-templates
-      templateContent: ({ compilation, htmlWebpackPlugin }) => {
-        const prefetchPaths = getJsAssetPaths(compilation, ["about"]);
-
-        return `<!DOCTYPE html>
-        <html>
-          <head>
-            <meta charset="utf-8" />
-            <title>React App with React Router Dom</title>
-            ${htmlWebpackPlugin.tags.headTags}
-            <link ref="prefetch" href="about.html"/>
-            ${prefetchPaths.map((p) => `<link rel="prefetch" href="${p}"/>`)}
-          </head>
-          <body>
-            <div id="root"></div>
-            ${htmlWebpackPlugin.tags.bodyTags}
-          </body>
-        </html>
-        `;
-      },
+      chunks: ["login"],
+      template: "./index.html",
+      filename: "index.html",
     }),
 
     new HtmlWebpackPlugin({
-      chunks: ["math"],
+      chunks: ["landing"],
       template: "./index.html",
-      filename: "math.html",
+      filename: "landing.html",
     }),
     new HtmlWebpackPlugin({
-      chunks: ["about"],
+      chunks: ["app1"],
       template: "./index.html",
-      filename: "about.html",
+      filename: "app1.html",
     }),
-
+    new HtmlWebpackPlugin({
+      chunks: ["app2"],
+      template: "./index.html",
+      filename: "app2.html",
+    }),
     /**
      * See https://github.com/webpack-contrib/webpack-bundle-analyzer
      */
