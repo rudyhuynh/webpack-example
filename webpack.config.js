@@ -19,7 +19,13 @@ module.exports = {
       overlay: false,
     },
   },
-  entry: "./src/main.tsx",
+  // entry: "./src/main.tsx",
+  entry: {
+    login: "./src/module/login/main.tsx",
+    landing: "./src/module/landing/main.tsx",
+    app1: "./src/module/app1/main.tsx",
+    app2: "./src/module/app2/main.tsx",
+  },
   output: {
     filename: "[name].[contenthash].js",
     path: path.resolve(__dirname, "dist"),
@@ -96,6 +102,23 @@ module.exports = {
 
     new HtmlWebpackPlugin({
       template: "./index.html",
+      filename: "index.html",
+      chunks: ["login"],
+    }),
+    new HtmlWebpackPlugin({
+      template: "./index.html",
+      filename: "landing.html",
+      chunks: ["landing"],
+    }),
+    new HtmlWebpackPlugin({
+      template: "./index.html",
+      filename: "app1.html",
+      chunks: ["app1"],
+    }),
+    new HtmlWebpackPlugin({
+      template: "./index.html",
+      filename: "app2.html",
+      chunks: ["app2"],
     }),
 
     /**
