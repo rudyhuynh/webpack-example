@@ -66,6 +66,9 @@ module.exports = {
     ],
   },
   optimization: {
+    splitChunks: {
+      chunks: "all",
+    },
     minimizer: [
       "...", // Extend existing minimizers (i.e. terser plugin.)
       new CssMinimizerPlugin(), // See https://webpack.js.org/plugins/css-minimizer-webpack-plugin/
