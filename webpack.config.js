@@ -109,9 +109,24 @@ module.exports = {
       chunks: ["login"],
     }),
     new HtmlWebpackPlugin({
-      template: "./index.html",
+      // template: "./index.html",
       filename: "landing.html",
       chunks: ["landing"],
+      templateContent: ({ compilation }) => {
+        const paths = getJsAssetPaths(compilation, ["app1"]);
+
+        return `<!DOCTYPE html>
+        <html>
+          <head>
+            <meta charset="utf-8" />
+            <title>React App</title>
+            ${paths.map((p) => `<link rel="prefetch" href="${p}" />`)}
+          </head>
+          <body>
+            <div id="root"></div>
+          </body>
+        </html>`;
+      },
     }),
     new HtmlWebpackPlugin({
       template: "./index.html",
