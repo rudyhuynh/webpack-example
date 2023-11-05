@@ -6,7 +6,11 @@ export const HomePage = () => {
   return (
     <div className="text-center">
       <div style={{ height: 20 }} />
-      <div>This is home page...</div>
+      <div>
+        Welcome to Prettier Demo. This app helps you quickly
+        <br className="lg-break" /> format your Typescript code by using{" "}
+        <a href="https://prettier.io/">Prettier</a>.
+      </div>
       <div style={{ height: 20 }} />
       <div>
         <button

@@ -9,6 +9,7 @@ export const PrettierDemo = () => {
 
   const onClickFormatCode = async () => {
     setIsLoading(true);
+    setError("");
     try {
       const formatted = await formatCode(code);
       setCode(formatted);
