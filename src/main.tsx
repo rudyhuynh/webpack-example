@@ -5,7 +5,7 @@ import "./style.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { HomePage } from "./components/HomePage";
 import { AboutPage } from "./components/AboutPage";
-import { ExponentiationPage } from "./components/ExponentiationPage";
+import { PrettierDemo } from "./components/PrettierDemo";
 
 const router = createBrowserRouter([
   {
@@ -17,8 +17,8 @@ const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: "/exp",
-        element: <ExponentiationPage />,
+        path: "/prettier-demo",
+        element: <PrettierDemo />,
       },
       {
         path: "about",

@@ -56,3 +56,15 @@ nav a:hover {
   background-color: rgb(18, 18, 18);
   border-radius: 4px;
 }
+
+.text-center {
+  text-align: center;
+}
+
+a {
+  color: white;
+}
+
+.text-red {
+  color: red;
+}

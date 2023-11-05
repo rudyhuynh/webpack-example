@@ -16,6 +16,9 @@ module.exports = {
   devServer: {
     port: process.env.PORT,
     historyApiFallback: true,
+    client: {
+      overlay: false,
+    },
   },
   entry: "./src/main.tsx",
   output: {

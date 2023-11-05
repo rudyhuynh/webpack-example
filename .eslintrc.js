@@ -14,5 +14,7 @@ module.exports = {
   },
   ignorePatterns: ["webpack.config.js"],
   plugins: ["@typescript-eslint"],
-  rules: {},
+  rules: {
+    "@typescript-eslint/no-explicit-any": 0,
+  },
 };

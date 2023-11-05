@@ -1,11 +1,20 @@
-import WebpackLogo from "../assets/webpack-logo.svg";
+import { useNavigate } from "react-router-dom";
+import "./HomePage.css";
 
 export const HomePage = () => {
+  const navigate = useNavigate();
   return (
-    <div>
-      <div>Home Page...</div>
+    <div className="text-center">
+      <div style={{ height: 20 }} />
+      <div>This is home page...</div>
+      <div style={{ height: 20 }} />
       <div>
-        <WebpackLogo width={100} height={100} />
+        <button
+          className="get-start-btn"
+          onClick={() => navigate("/prettier-demo")}
+        >
+          Get Started
+        </button>
       </div>
     </div>
   );

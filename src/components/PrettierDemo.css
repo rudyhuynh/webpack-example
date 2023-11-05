@@ -1,0 +1,15 @@
+.math-page textarea {
+  background-color: white;
+  border: none;
+  border-radius: 4px;
+
+  width: 100%;
+  font-size: 1.5rem;
+}
+
+.math-page button {
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.5rem;
+}

@@ -8,10 +8,10 @@ export const NavigationBar = () => {
         Home
       </NavLink>
       <NavLink
-        to="/exp"
-        className={location.pathname === "/exp" ? "active" : ""}
+        to="/prettier-demo"
+        className={location.pathname === "/prettier-demo" ? "active" : ""}
       >
-        Exponentiation
+        Prettier Demo
       </NavLink>
       <NavLink
         to="/about"
