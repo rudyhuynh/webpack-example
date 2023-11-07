@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./PrettierDemo.css";
-import { formatCode } from "../utils/formatCode";
+import { formatCode } from "../utils/formatCode"; // static import
 
 export const PrettierDemo = () => {
   const [code, setCode] = useState("");
@@ -11,6 +11,7 @@ export const PrettierDemo = () => {
     setIsLoading(true);
     setError("");
     try {
+      // const { formatCode } = await import("../utils/formatCode");
       const formatted = await formatCode(code);
       setCode(formatted);
     } catch (e) {
@@ -45,3 +46,5 @@ export const PrettierDemo = () => {
     </div>
   );
 };
+
+export default PrettierDemo;

@@ -5,7 +5,10 @@ import "./style.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { HomePage } from "./components/HomePage";
 import { AboutPage } from "./components/AboutPage";
-import { PrettierDemo } from "./components/PrettierDemo";
+import React from "react";
+// import { PrettierDemo } from "./components/PrettierDemo";
+
+const PrettierDemo = React.lazy(() => import("./components/PrettierDemo"));
 
 const router = createBrowserRouter([
   {
@@ -19,6 +22,12 @@ const router = createBrowserRouter([
       {
         path: "/prettier-demo",
         element: <PrettierDemo />,
+        // lazy: async () => {
+        //   const { PrettierDemo } = await import("./components/PrettierDemo");
+        //   return {
+        //     Component: PrettierDemo,
+        //   };
+        // },
       },
       {
         path: "about",
