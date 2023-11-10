@@ -1,9 +1,9 @@
 # webpack-example
 
-Example for Section 6 Video 2.
+Basic example for Micro Frontend structure using Webpack Module Federation.
 
 ```
 git clone https://github.com/rudyhuynh/webpack-example.git
-git checkout S7-Multiple-Entries
+git checkout S8-Micro-Frontend
 npm install
 ```

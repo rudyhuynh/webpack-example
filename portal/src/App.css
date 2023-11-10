@@ -1,0 +1,36 @@
+.App {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 40px;
+  gap: 20px;
+}
+
+.app1-container,
+.app2-container {
+  box-sizing: border-box;
+  flex: 1;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.app1-container:hover,
+.app2-container:hover {
+  border-width: 2px;
+}
+
+.app2-container {
+  box-sizing: border-box;
+  flex: 1;
+  border-radius: 6px;
+}
+
+.app1-container {
+  border: 1px solid #fa7070;
+}
+.app2-container {
+  border: 1px solid #557c55;
+}
