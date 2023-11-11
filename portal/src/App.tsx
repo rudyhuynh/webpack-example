@@ -6,7 +6,7 @@ export const App = () => {
   return (
     <div className="App">
       <div className="app1-container">
-        <App1 />
+        <App1 text={"Some text"} />
       </div>
       <div className="app2-container">
         <App2 />

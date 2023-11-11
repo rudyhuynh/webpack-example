@@ -8,7 +8,9 @@
   "workspaces": [
     "app1",
     "app2",
-    "portal"
+    "portal",
+    "@types/app1",
+    "@types/app2"
   ],
   "devDependencies": {
     "prettier": "^3.0.3"

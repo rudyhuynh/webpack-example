@@ -64,7 +64,7 @@ module.exports = {
   },
   plugins: [
     ...miniCssExtractPlugin(),
-    new ForkTsCheckerWebpackPlugin(),
+    new ForkTsCheckerWebpackPlugin({ typescript: { mode: "write-dts" } }),
     new ESLintPlugin({
       extensions: ["ts", "tsx"],
       exclude: ["node_modules"],

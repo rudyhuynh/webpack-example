@@ -7,7 +7,10 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "jsx": "react-jsx",
-    "moduleResolution": "Node"
+    "moduleResolution": "Node",
+    "declaration": true,
+    "declarationDir": "../@types/app2",
+    "noEmit": true
   },
   "$schema": "https://json.schemastore.org/tsconfig"
 }
