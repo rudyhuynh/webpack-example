@@ -19,7 +19,7 @@ module.exports = {
       overlay: false,
     },
   },
-  entry: "./src/main.tsx",
+  entry: "./src/index.ts",
   output: {
     filename: "[name].[contenthash].js",
     path: path.resolve(__dirname, "dist"),
