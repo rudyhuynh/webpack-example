@@ -1,15 +1,7 @@
 {
   "name": "webpack-example",
   "version": "1.0.0",
-  "description": "A nearly empty project. Where everything begins...",
-  "main": "index.js",
-  "scripts": {
-    "serve": "ENV_PATH=.env.development webpack serve",
-    "build:production": "ENV_PATH=.env.production webpack",
-    "build:analyze": "ENV_PATH=.env.production ANALYZE=true webpack",
-    "build:stat": "ENV_PATH=.env.production webpack --profile --json > stats.json",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "keywords": [],
   "author": "",
   "license": "ISC",
