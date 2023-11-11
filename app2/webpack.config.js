@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
+const { ModuleFederationPlugin } = require("webpack").container;
 
 const isProduction = process.env.NODE_ENV === "production";
 
@@ -70,6 +71,18 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: "./index.html",
+    }),
+    new ModuleFederationPlugin({
+      name: "app2",
+      filename: "remoteEntry.js",
+      exposes: {
+        "./App": "./src/App.tsx", // import {App} from 'app1/App'
+      },
+      shared: {
+        ...require("./package.json").dependencies,
+        react: { singleton: true },
+        "react-dom": { singleton: true },
+      },
     }),
   ],
 };
