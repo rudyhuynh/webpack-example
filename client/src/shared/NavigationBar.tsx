@@ -50,8 +50,8 @@ export const NavigationBar = ({ title }: { title: string }) => {
         <Box role="presentation" width={200}>
           <ListItem disablePadding>
             <ListItemButton
-              selected={location.pathname.includes("landing.html")}
-              onClick={() => navigate("/landing.html")}
+              selected={location.pathname.includes("landing")}
+              onClick={() => navigate("/landing")}
             >
               <ListItemText primary="Landing Page" />
             </ListItemButton>
@@ -60,16 +60,16 @@ export const NavigationBar = ({ title }: { title: string }) => {
           <List>
             <ListItem disablePadding>
               <ListItemButton
-                selected={location.pathname.includes("app1.html")}
-                onClick={() => navigate("/app1.html")}
+                selected={location.pathname.includes("app1")}
+                onClick={() => navigate("/app1")}
               >
                 <ListItemText primary="App 1" />
               </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
               <ListItemButton
-                selected={location.pathname.includes("app2.html")}
-                onClick={() => navigate("/app2.html")}
+                selected={location.pathname.includes("app2")}
+                onClick={() => navigate("/app2")}
               >
                 <ListItemText primary="App 2" />
               </ListItemButton>

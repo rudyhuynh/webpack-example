@@ -7,7 +7,6 @@ const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
-const utils = require("util");
 const isProduction = process.env.NODE_ENV === "production";
 
 /** @type {import('webpack').Configuration} */
@@ -29,7 +28,7 @@ module.exports = {
   },
   output: {
     filename: "[name].[contenthash].js",
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "../server/public"),
     assetModuleFilename: "[name].[contenthash][ext]",
     clean: true,
   },
@@ -104,23 +103,27 @@ module.exports = {
     new HtmlWebpackPlugin({
       chunks: ["login"],
       template: "./index.html",
-      filename: "index.html",
+      filename: "../pages/login.ejs",
+      publicPath: "",
     }),
 
     new HtmlWebpackPlugin({
       chunks: ["landing"],
       template: "./index.html",
-      filename: "landing.html",
+      filename: "../pages/landing.ejs",
+      publicPath: "",
     }),
     new HtmlWebpackPlugin({
       chunks: ["app1"],
       template: "./index.html",
-      filename: "app1.html",
+      filename: "../pages/app1.ejs",
+      publicPath: "",
     }),
     new HtmlWebpackPlugin({
       chunks: ["app2"],
       template: "./index.html",
-      filename: "app2.html",
+      filename: "../pages/app2.ejs",
+      publicPath: "",
     }),
     /**
      * See https://github.com/webpack-contrib/webpack-bundle-analyzer

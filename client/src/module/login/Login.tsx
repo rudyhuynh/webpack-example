@@ -3,7 +3,7 @@ import "./Login.css";
 
 export const Login = () => {
   const onClickLogin = () => {
-    location.href = "/landing.html";
+    location.href = "/landing";
   };
 
   return (
