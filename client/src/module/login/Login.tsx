@@ -1,9 +1,10 @@
 import { Button, Container, TextField } from "@mui/material";
 import "./Login.css";
+import { navigate } from "../../utils/navigate";
 
 export const Login = () => {
   const onClickLogin = () => {
-    location.href = "/landing";
+    navigate("/landing.html");
   };
 
   return (

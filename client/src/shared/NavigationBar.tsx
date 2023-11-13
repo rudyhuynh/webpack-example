@@ -51,7 +51,7 @@ export const NavigationBar = ({ title }: { title: string }) => {
           <ListItem disablePadding>
             <ListItemButton
               selected={location.pathname.includes("landing")}
-              onClick={() => navigate("/landing")}
+              onClick={() => navigate("/landing.html")}
             >
               <ListItemText primary="Landing Page" />
             </ListItemButton>
@@ -61,7 +61,7 @@ export const NavigationBar = ({ title }: { title: string }) => {
             <ListItem disablePadding>
               <ListItemButton
                 selected={location.pathname.includes("app1")}
-                onClick={() => navigate("/app1")}
+                onClick={() => navigate("/app1.html")}
               >
                 <ListItemText primary="App 1" />
               </ListItemButton>
@@ -69,7 +69,7 @@ export const NavigationBar = ({ title }: { title: string }) => {
             <ListItem disablePadding>
               <ListItemButton
                 selected={location.pathname.includes("app2")}
-                onClick={() => navigate("/app2")}
+                onClick={() => navigate("/app2.html")}
               >
                 <ListItemText primary="App 2" />
               </ListItemButton>

@@ -28,7 +28,7 @@ module.exports = {
   },
   output: {
     filename: "[name].[contenthash].js",
-    path: path.resolve(__dirname, "../server/public"),
+    path: path.resolve(__dirname, "dist"),
     assetModuleFilename: "[name].[contenthash][ext]",
     clean: true,
   },
@@ -103,27 +103,23 @@ module.exports = {
     new HtmlWebpackPlugin({
       chunks: ["login"],
       template: "./index.html",
-      filename: "../pages/login.ejs",
-      publicPath: "",
+      filename: "index.html",
     }),
 
     new HtmlWebpackPlugin({
       chunks: ["landing"],
       template: "./index.html",
-      filename: "../pages/landing.ejs",
-      publicPath: "",
+      filename: "landing.html",
     }),
     new HtmlWebpackPlugin({
       chunks: ["app1"],
       template: "./index.html",
-      filename: "../pages/app1.ejs",
-      publicPath: "",
+      filename: "app1.html",
     }),
     new HtmlWebpackPlugin({
       chunks: ["app2"],
       template: "./index.html",
-      filename: "../pages/app2.ejs",
-      publicPath: "",
+      filename: "app2.html",
     }),
     /**
      * See https://github.com/webpack-contrib/webpack-bundle-analyzer
