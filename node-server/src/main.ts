@@ -2,8 +2,6 @@ import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
 
-const port = process.argv[2];
-
 const app = express();
 
 app.use(bodyParser.json());
@@ -19,6 +17,6 @@ app.get("/", (req, resp) => {
 
 // --- End Routes
 
-app.listen(port, function () {
-  console.log(`Server started at http://localhost:${port} !`);
+app.listen(4001, function () {
+  console.log(`Server started at http://localhost:4001 !`);
 });
