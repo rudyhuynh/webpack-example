@@ -25,3 +25,5 @@ coverage
 *.sw?
 
 package-lock.json
+
+web-app/dist
