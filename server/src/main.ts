@@ -12,33 +12,11 @@ app.set("view engine", "ejs");
 
 app.use(express.static("public"));
 
-// // Routes
+// Routes
 app.get("/", (req, resp) => {
-  resp.render("common", {
-    page: "../pages/login",
-    serverData: "123",
-  });
+  resp.send("Hello World!");
 });
 
-app.get("/landing", (req, resp) => {
-  resp.render("common", {
-    page: "../pages/landing",
-    serverData: "123",
-  });
-});
-
-app.get("/app1", (req, resp) => {
-  resp.render("common", {
-    page: "../pages/app1",
-    serverData: "123",
-  });
-});
-app.get("/app2", (req, resp) => {
-  resp.render("common", {
-    page: "../pages/app2",
-    serverData: "123",
-  });
-});
 // --- End Routes
 
 app.listen(port, function () {
