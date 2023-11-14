@@ -12,9 +12,20 @@ app.use(express.static("public"));
 
 // Routes
 app.get("/", (req, resp) => {
-  resp.send("Hello World!");
+  resp.render("login");
 });
 
+app.get("/landing", (req, resp) => {
+  resp.render("landing");
+});
+
+app.get("/app1", (req, resp) => {
+  resp.render("app1");
+});
+
+app.get("/app2", (req, resp) => {
+  resp.render("app2");
+});
 // --- End Routes
 
 app.listen(4001, function () {

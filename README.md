@@ -2,6 +2,6 @@
 
 ```
 git clone https://github.com/rudyhuynh/webpack-example.git
-git checkout S9-Node-Integrate
+git checkout S9-EJS
 npm install
 ```

@@ -20,14 +20,14 @@ export function Landing() {
         </Toolbar>
       </AppBar>
       <div className="landing-body">
-        <Card className="card" onClick={() => navigate("/app1.html")}>
+        <Card className="card" onClick={() => navigate("/app1")}>
           <CardContent>
             <Typography variant="h5" component="div">
               App 1
             </Typography>
           </CardContent>
         </Card>
-        <Card className="card" onClick={() => navigate("/app2.html")}>
+        <Card className="card" onClick={() => navigate("/app2")}>
           <CardContent>
             <Typography variant="h5" component="div">
               App 2

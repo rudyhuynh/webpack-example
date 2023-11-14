@@ -4,7 +4,7 @@ import { navigate } from "../../utils/navigate";
 
 export const Login = () => {
   const onClickLogin = () => {
-    navigate("/landing.html");
+    navigate("/landing");
   };
 
   return (

@@ -28,7 +28,10 @@ module.exports = {
   },
   output: {
     filename: "[name].[contenthash].js",
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(
+      __dirname,
+      isProduction ? "../node-server/public" : "dist"
+    ),
     assetModuleFilename: "[name].[contenthash][ext]",
     clean: true,
   },
@@ -103,22 +106,26 @@ module.exports = {
     new HtmlWebpackPlugin({
       chunks: ["login"],
       template: "./index.html",
-      filename: "index.html",
+      filename: "../views/login.ejs",
+      publicPath: "",
     }),
     new HtmlWebpackPlugin({
       chunks: ["landing"],
       template: "./index.html",
-      filename: "landing.html",
+      filename: "../views/landing.ejs",
+      publicPath: "",
     }),
     new HtmlWebpackPlugin({
       chunks: ["app1"],
       template: "./index.html",
-      filename: "app1.html",
+      filename: "../views/app1.ejs",
+      publicPath: "",
     }),
     new HtmlWebpackPlugin({
       chunks: ["app2"],
       template: "./index.html",
-      filename: "app2.html",
+      filename: "../views/app2.ejs",
+      publicPath: "",
     }),
 
     /**
