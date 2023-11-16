@@ -2,6 +2,6 @@
 
 ```
 git clone https://github.com/rudyhuynh/webpack-example.git
-git checkout S9-EJS
+git checkout S9-Nonce
 npm install
 ```

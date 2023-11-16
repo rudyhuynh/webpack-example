@@ -1,6 +1,10 @@
 import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
+import crypto from "crypto";
+import ejs from "ejs";
+
+ejs.delimiter = "?";
 
 const app = express();
 
@@ -16,7 +20,7 @@ app.get("/", (req, resp) => {
 });
 
 app.get("/landing", (req, resp) => {
-  resp.render("landing");
+  resp.render("landing", { randomString: crypto.randomUUID() });
 });
 
 app.get("/app1", (req, resp) => {
